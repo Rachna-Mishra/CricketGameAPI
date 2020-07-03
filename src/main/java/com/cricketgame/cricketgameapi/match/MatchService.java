@@ -51,7 +51,4 @@ public class MatchService {
         matchRepository.save(match);
     }
 
-    public void getStartedMatch(int numberOfMatches, int numberOfOvers) {
-
-    }
 }

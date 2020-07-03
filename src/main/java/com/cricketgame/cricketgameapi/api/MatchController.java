@@ -2,6 +2,7 @@ package com.cricketgame.cricketgameapi.api;
 
 import com.cricketgame.cricketgameapi.match.Match;
 import com.cricketgame.cricketgameapi.match.MatchService;
+import com.cricketgame.cricketgameapi.match.UniqueMatchId;
 import com.cricketgame.cricketgameapi.series.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,13 +34,9 @@ public class MatchController {
     @RequestMapping("/Insert")
     public String insertMatchRecord(@RequestParam int seriesId,@RequestParam int matchId, @RequestParam int battingTeamId,@RequestParam int battingTeamScore,@RequestParam int battingTeamWickets,@RequestParam int bowlingTeamScore,@RequestParam int bowlingTeamWickets, @RequestParam int winningTeam)
     {
-        matchService.insertMatchRecord(new Match(seriesId,matchId,battingTeamId,battingTeamScore,battingTeamWickets,bowlingTeamScore,bowlingTeamWickets,winningTeam));
+        UniqueMatchId uniqueMatchId=new UniqueMatchId(seriesId,matchId);
+        matchService.insertMatchRecord(new Match(uniqueMatchId,battingTeamId,battingTeamScore,battingTeamWickets,bowlingTeamScore,bowlingTeamWickets,winningTeam));
         return "Saved";
     }
 
-    @RequestMapping("/startMatch/{}/{}")
-    public void startMatch(@PathVariable int numberOfMatches,@PathVariable int numberOfOvers)
-    {
-        matchService.getStartedMatch(numberOfMatches,numberOfOvers);
-    }
 }

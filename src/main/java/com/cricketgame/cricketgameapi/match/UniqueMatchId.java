@@ -2,10 +2,12 @@ package com.cricketgame.cricketgameapi.match;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Table
 public class UniqueMatchId implements Serializable {
 
     @Column
@@ -13,6 +15,8 @@ public class UniqueMatchId implements Serializable {
 
     @Column
     private int matchId;
+
+    public UniqueMatchId(){}
 
     public UniqueMatchId(int seriesId,int matchId)
     {

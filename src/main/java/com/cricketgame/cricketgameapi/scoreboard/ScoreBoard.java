@@ -13,18 +13,6 @@ public class ScoreBoard {
     private Identifier identifier;
 
     @Column
-    private int seriesId;
-
-    @Column
-    private int matchId;
-
-    @Column
-    private int inning;
-
-    @Column
-    private int ballNumber;
-
-    @Column
     private int run;
 
     @Column
@@ -63,37 +51,5 @@ public class ScoreBoard {
 
     public void setPlayerOnPitch(int playerOnPitch) {
         this.playerOnPitch = playerOnPitch;
-    }
-
-    public int getSeriesId() {
-        return seriesId;
-    }
-
-    public void setSeriesId(int seriesId) {
-        this.seriesId = seriesId;
-    }
-
-    public int getMatchId() {
-        return matchId;
-    }
-
-    public void setMatchId(int matchId) {
-        this.matchId = matchId;
-    }
-
-    public int getInning() {
-        return inning;
-    }
-
-    public void setInning(int inning) {
-        this.inning = inning;
-    }
-
-    public int getBallNumber() {
-        return ballNumber;
-    }
-
-    public void setBallNumber(int ballNumber) {
-        this.ballNumber = ballNumber;
     }
 }

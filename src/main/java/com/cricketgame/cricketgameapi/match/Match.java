@@ -7,12 +7,8 @@ import javax.persistence.*;
 public class Match {
 
     @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UniqueMatchId uniqueMatchId;
-    @Id
-    private int seriesId;
-
-    @Id
-    private int matchId;
 
     @Column
     private int battingTeamId;
@@ -32,9 +28,9 @@ public class Match {
     @Column
     private int winningTeam;
 
-    public Match(int seriesId, int matchId, int battingTeamId, int battingTeamScore, int battingTeamWickets,int bowlingTeamScore, int bowlingTeamWickets, int winningTeam) {
-     this.seriesId=seriesId;
-     this.matchId=matchId;
+    public Match(){}
+
+    public Match( UniqueMatchId uniqueMatchId,int battingTeamId, int battingTeamScore, int battingTeamWickets,int bowlingTeamScore, int bowlingTeamWickets, int winningTeam) { this.uniqueMatchId=uniqueMatchId;
      this.battingTeamId=battingTeamId;
      this.battingTeamScore=battingTeamScore;
      this.battingTeamWickets=battingTeamWickets;
@@ -42,23 +38,6 @@ public class Match {
      this.battingTeamWickets=bowlingTeamWickets;
      this.winningTeam=winningTeam;
 
-    }
-
-
-    public int getSeriesId() {
-        return seriesId;
-    }
-
-    public void setSeriesId(int seriesId) {
-        this.seriesId = seriesId;
-    }
-
-    public int getMatchId() {
-        return matchId;
-    }
-
-    public void setMatchId(int matchId) {
-        this.matchId = matchId;
     }
 
     public int getBattingTeamId() {

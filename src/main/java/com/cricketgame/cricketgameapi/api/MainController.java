@@ -21,9 +21,9 @@ public class MainController {
     @Autowired
     private ScoreBoardService scoreBoardService;
 
-    @RequestMapping("/startMatch/{}/{}")
+    @RequestMapping("/OrganizeMatch/{numerOfMatches}/{numberOfOvers}")
     public void startMatch(@PathVariable int numberOfMatches, @PathVariable int numberOfOvers)
     {
-       // matchService.getStartedMatch(numberOfMatches,numberOfOvers);
+        matchService.organizeMatch(numberOfMatches,numberOfOvers);
     }
 }

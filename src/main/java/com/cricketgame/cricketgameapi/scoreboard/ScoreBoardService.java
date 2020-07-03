@@ -9,4 +9,8 @@ public class ScoreBoardService {
     @Autowired
     private ScoreBoardRepository scoreBoardRepository;
 
+    public void updateScoreBoard(ScoreBoard scoreBoard)
+    {
+        scoreBoardRepository.save(scoreBoard);
+    }
 }

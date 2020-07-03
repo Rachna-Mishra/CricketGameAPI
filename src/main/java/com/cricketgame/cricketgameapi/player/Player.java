@@ -3,40 +3,30 @@ package com.cricketgame.cricketgameapi.player;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "player_details")
-public class Player
-{
-@Id
-@Column
-@GeneratedValue(strategy = GenerationType.AUTO)
-private String player_id;
+@Table(name = "PlayerDetails")
+public class Player {
 
-@Column
-private int team_id;
+    @EmbeddedId
+    private PlayerId playerId;
 
-@Column
-private String player_name;
+    @Column
+    private String player_name;
 
-@Column
-private String player_type;
+    @Column
+    private String player_type;
 
-@Column
-private int jersey_no;
-
-    public String getPlayer_id() {
-        return player_id;
+    public Player(PlayerId playerId, String player_name, String player_type) {
+        this.playerId = playerId;
+        this.player_name = player_name;
+        this.player_type = player_type;
     }
 
-    public void setPlayer_id(String player_id) {
-        this.player_id = player_id;
+    public PlayerId getPlayerId() {
+        return playerId;
     }
 
-    public int getTeam_id() {
-        return team_id;
-    }
-
-    public void setTeam_id(int team_id) {
-        this.team_id = team_id;
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
     }
 
     public String getPlayer_name() {
@@ -47,19 +37,10 @@ private int jersey_no;
         this.player_name = player_name;
     }
 
-    public String getPlayer_type() {
-        return player_type;
-    }
+    public String getPlayer_type() { return player_type; }
 
     public void setPlayer_type(String player_type) {
         this.player_type = player_type;
     }
 
-    public int getJersey_no() {
-        return jersey_no;
-    }
-
-    public void setJersey_no(int jersey_no) {
-        this.jersey_no = jersey_no;
-    }
 }

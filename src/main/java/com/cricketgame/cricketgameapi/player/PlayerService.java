@@ -1,6 +1,7 @@
 package com.cricketgame.cricketgameapi.player;
 
 import com.cricketgame.cricketgameapi.team.Team;
+import javafx.print.PageLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +22,18 @@ private PlayerRepository playerRepository;
         return playerList;
     }
 
+    public List<Player> getPlayerByTeamId(int teamId)
+    {
+        List<Player> playerList=new ArrayList<>();
+        playerList.addAll(playerRepository.getPlayerByTeamId(teamId));
+        return playerList;
+    }
+
     public void addPlayer(Player player) {
-        player.setPlayer_id(player.getTeam_id()+""+player.getJersey_no());
         playerRepository.save(player);
     }
 
-    public void deletePlayer(String id) {
+    public void deletePlayer(PlayerId id) {
         Optional<Player> player=playerRepository.findById(id);
         if (player.isPresent())
             playerRepository.delete(player.get());
@@ -35,4 +42,5 @@ private PlayerRepository playerRepository;
     public void updatePlayer(Player player) {
         playerRepository.save(player);
     }
+
 }

@@ -25,7 +25,7 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/Add", method = RequestMethod.POST)
-    public String addNewTeam(@RequestBody Player player) {
+    public String addNewPlayer(@RequestBody Player player) {
         String response=null;
         try {
             playerService.addPlayer(player);
@@ -58,7 +58,7 @@ public class PlayerController {
     public String upateTeam(@PathVariable String id,@RequestBody Player player) {
         String response=null;
         try {
-            player.setPlayer_id(id);
+            player.setPlayerId(id);
             playerService.updatePlayer(player);
             response="Player Deatils updated successfully.";
         }

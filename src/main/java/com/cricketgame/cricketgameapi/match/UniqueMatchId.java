@@ -53,4 +53,10 @@ public class UniqueMatchId implements Serializable {
     public int hashCode() {
         return Objects.hash(getSeriesId(),getMatchId());
     }
+
+    @Override
+    public String toString()
+    {
+        return seriesId+" "+matchId;
+    }
 }

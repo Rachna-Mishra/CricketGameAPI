@@ -43,4 +43,9 @@ public class SeriesService {
             seriesList.add(series);
         return seriesList;
     }
+
+    public void insertSeriesRecord(Series series)
+    {
+
+    }
 }

@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table(name = "SeriesRecord")
 public class Series
 {
-@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int seriesId;
 
     @Column(name = "NumberOfMatches")
@@ -16,19 +16,23 @@ public class Series
     @Column(name = "Team1")
     private int team1;
 
+    public Series(int seriesId, int numberOfMatches, int team1, int team2, int winnerSeriesTeamId) {
+        this.seriesId = seriesId;
+        this.numberOfMatches = numberOfMatches;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.winnerSeriesTeamId = winnerSeriesTeamId;
+    }
+
     @Column(name="Team2")
     private int team2;
 
     @Column(name = "WinnerSeriesTeamId")
     private int winnerSeriesTeamId;
 
-    public int getSeriesId() {
-        return seriesId;
-    }
+    public Series(){}
 
-    public void setSeriesId(int seriesId) {
-        this.seriesId = seriesId;
-    }
+
 
     public int getNumberOfMatches() {
         return numberOfMatches;

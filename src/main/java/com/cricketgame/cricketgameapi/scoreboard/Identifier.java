@@ -1,15 +1,32 @@
 package com.cricketgame.cricketgameapi.scoreboard;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
 public class Identifier implements Serializable {
 
+    @Column
     private int seriesId;
+
+    @Column
     private int matchId;
+
+    @Column
     private int inning;
+
+    @Column
     private int ballNumber;
+
+    public Identifier(){}
+
+    public Identifier(int seriesId, int matchId, int inning, int ballNumber) {
+        this.seriesId = seriesId;
+        this.matchId = matchId;
+        this.inning = inning;
+        this.ballNumber = ballNumber;
+    }
 
     public int getSeriesId() {
         return seriesId;

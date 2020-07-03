@@ -1,5 +1,8 @@
 package com.cricketgame.cricketgameapi.scoreboard;
 
+import com.cricketgame.cricketgameapi.player.Player;
+import com.cricketgame.cricketgameapi.player.PlayerId;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -16,10 +19,23 @@ public class ScoreBoard {
     private int run;
 
     @Column
-    private int playerOnStrike;
+    private int score;
 
     @Column
-    private int playerOnPitch;
+    private PlayerId playerOnStrike;
+
+    @Column
+    private PlayerId playerOnPitch;
+
+    public ScoreBoard(){}
+
+    public ScoreBoard(Identifier identifier, int run, int score, PlayerId playerOnStrike, PlayerId playerOnPitch) {
+        this.identifier = identifier;
+        this.run = run;
+        this.score = score;
+        this.playerOnStrike = playerOnStrike;
+        this.playerOnPitch = playerOnPitch;
+    }
 
     public Identifier getIdentifier() {
         return identifier;
@@ -37,19 +53,27 @@ public class ScoreBoard {
         this.run = run;
     }
 
-    public int getPlayerOnStrike() {
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public PlayerId getPlayerOnStrike() {
         return playerOnStrike;
     }
 
-    public void setPlayerOnStrike(int playerOnStrike) {
+    public void setPlayerOnStrike(PlayerId playerOnStrike) {
         this.playerOnStrike = playerOnStrike;
     }
 
-    public int getPlayerOnPitch() {
+    public PlayerId getPlayerOnPitch() {
         return playerOnPitch;
     }
 
-    public void setPlayerOnPitch(int playerOnPitch) {
+    public void setPlayerOnPitch(PlayerId playerOnPitch) {
         this.playerOnPitch = playerOnPitch;
     }
 }
